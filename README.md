@@ -268,14 +268,16 @@ What if we wanted to test if u is less than 54 cm?
  # Ho: u = 49 Ha: u > 49
  
  z <- z_score(x_bar,49,s,n)
+ ## 4.976046
  z_test(z,"greater",.95)
  ## Reject Null Hypothesis 4.976046 > 1.644854 
  ## p value: 3.244813e-07
  
  
  # Ho: u = 58 Ha: u < 58
-
+ 
  z <- z_score(x_bar,58,s,n)
+ ## -1.943419
  z_test(z,"less",.95)
  ## Reject Null Hypothesis -1.943419 < -1.644854 
  ## p value: 0.0259828
@@ -302,6 +304,7 @@ What if we wanted to test if u is less than 54 cm?
  # Ho: u = 52.2 Ha: u != 52.2
  
  z <- z_score(x_bar,52.2,s,n)
+ ## 2.515792
  z_test(z,"two.sided",.99)
  ## Do Not Reject Null Hypothesis 2.515792 < 2.575829 
  ## p value: 0.01187653
