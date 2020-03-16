@@ -6,16 +6,43 @@ In Aquatic Biology (Vol. 9. 2010), a study was conducted on the green sea turtle
 
 
 ```
-#Loads Data, Remove irrelevant columns
 library(tidyverse)
 
 turtle <- read_csv("TURTLES.csv") %>%
           select(Length)
-```
-```
+
 head(turtle)
 
+## # A tibble: 6 x 1
+##   Length
+##    <dbl>
+## 1   34.0
+## 2   30.4
+## 3   32.6
+## 4   31.5
+## 5   36.5
+## 6   35.5
+
 summary(turtle)
+
+##      Length     
+##  Min.   :30.37  
+##  1st Qu.:49.50  
+##  Median :56.78  
+##  Mean   :55.47  
+##  3rd Qu.:64.60  
+##  Max.   :81.63
+
+str(turtle)
+
+## Classes ‘spec_tbl_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	76 obs. of  1 variable:
+## $ Length: num  34 30.4 32.6 31.5 36.5 ...
+## - attr(*, "spec")=
+##  .. cols(
+##  ..   Range = col_character(),
+## ..   Captures = col_double(),
+##  ..   Length = col_double()
+##  .. )
 ```
 
 ## Conditions Required For Z-Test
