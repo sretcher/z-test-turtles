@@ -94,7 +94,9 @@ Sadly, there is no implementation of z-tests in base R so we will have to create
 
 
 ## Z-Score Function
-The function below computes the z_score, which we will use as our test statistic. This test statistic will allow us to decide between the null and alternative hypothesis. The function takes in a sample mean (x_bar), uo (the value specified in the null hypothesis), sigma(either population or sample standard deviation) and n (sample size). The z statistic is the distance between the sample mean and u0 in standard deviation units. 
+The function takes in a sample mean (x_bar), uo (the value specified in the null hypothesis), sigma(either population or sample standard deviation) and n (sample size). 
+
+The function computes the z_score, which we will use as our test statistic. This test statistic will allow us to decide between the null and alternative hypothesis. The z statistic is the distance between the sample mean and u0 in standard deviation units. 
 ```
 z_score <- function(x_bar,uo,sigma,n){
   se <- sigma/sqrt(n)
@@ -105,7 +107,9 @@ z_score <- function(x_bar,uo,sigma,n){
   
 ## Confidence Interval for u, Based on a Normal (z) Statistic
 
-The function below computes the confidence interval using sample mean (x_bar), the direction of the alternative hypothesis (alternative = less, greater, or two.sided), sigma(either population or sample standard deviation), confidence level (as decimal) and n (sample size). Doing a one sided test will result in a one sided confidence interval, since we are only interested that the population mean is less than or greater than a value. For a two sided test, we must take in account that the area of the critical region is divided among both tails. For example, a two sided 95% confidence inteval requires a quartile corresponding to z.975--qnorm(.975)--1.96
+The function below computes the confidence interval using sample mean (x_bar), the direction of the alternative hypothesis (alternative = less, greater, or two.sided), sigma(either population or sample standard deviation), confidence level (as decimal) and n (sample size). 
+
+Doing a one sided test will result in a one sided confidence interval, since we are only interested that the population mean is less than or greater than a value. For a two sided test, we must take in account that the area of the critical region is divided among both tails. For example, a two sided 95% confidence inteval requires a quartile corresponding to z.975--qnorm(.975)--1.96
 
 ```
 z_ci <- function(x_bar, alternative, conf.level, sigma, n) {
@@ -123,7 +127,11 @@ z_ci <- function(x_bar, alternative, conf.level, sigma, n) {
 }
 ```
 
-##Z 
+##Main Z-Test Function
+
+The Z_test function take in z (our test statistic we can compute from `z_score`), the direction specified in the alternative hypothesis (alternative = less, greater, or two.sided), and the confidence level (conf.level as decimal).
+
+
   
   
 z_test <- function(z,alternative,conf.level){
