@@ -67,17 +67,27 @@ qqline(turtle$Length,col="blue",lwd=1)
 ![histogram](histogram)
 ![histogram](qqplot)
 
-Examining the histogram and the normal probability plot, we see a slight departure from normality. The data appears to be left skewed and has more data located at the tails instead of the center of distribution. Lucky for us, the z-test is robust against violations of normality. Since our sample size is greater than 30, by the Central Limit Theorem, our sampling distribution of x-bar will be approximately normal regardless of the population distribution. Since x-bar is a point estimater for a population mean and we know the sampling distribution of x-bar is normal, we can still make inferences about our population mean. 
+Examining the histogram and the normal probability plot, we see a slight departure from normality. The data appears to be left skewed and has more data located at the tails instead of the center of distribution. 
+
+Lucky for us, the z-test is robust against violations of normality. Since our sample size is greater than 30, by the Central Limit Theorem, our sampling distribution of x-bar will be approximately normal regardless of the population distribution. Since x-bar is a point estimater for a population mean and we know the sampling distribution of x-bar is normal, we can still make inferences about our population mean using the standard normal distribution. 
 
 The last assumption entails that we must know the population standard deviation. In most cases, we don't know what it is. Since our sample size is large, we will use our sample standard deviation which will provide a good approximation for this value.
 
 
+## Setting Up Hypothesis Tests
+We are interested in making a statement about the numerical value of our population mean. Suppose we wanted to test if the true mean carapace length of the turtle was greater than 60.0 cm. Our null/alternative hypothesis would be
 
+Ho: u = 60.0
+Ha: u > 60.0
+
+where u is our population parameter.
+
+## Preparing the data
 
 x_bar = mean(turtle$Length, na.rm = TRUE)
 s = sd(turtle$Length, na.rm = TRUE)
 n = length(turtle$Length)
-uo = 78
+uo = 60
 
 
 
