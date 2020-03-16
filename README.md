@@ -107,7 +107,7 @@ z_score <- function(x_bar,uo,sigma,n){
   
 ## Confidence Interval for u, Based on a Normal (z) Statistic
 
-The function below computes the confidence interval using sample mean (x_bar), the direction of the alternative hypothesis (alternative = less, greater, or two.sided), sigma(either population or sample standard deviation), confidence level (as decimal) and n (sample size). 
+The function below computes the confidence interval using sample mean (x_bar), the direction of the alternative hypothesis (alternative = less, greater, or two.sided), sigma (either population or sample standard deviation), confidence level (as decimal) and n (sample size). 
 
 Doing a one sided test will result in a one sided confidence interval, since we are only interested that the population mean is less than or greater than a value. For a two sided test, we must take in account that the area of the critical region is divided among both tails. For example, a two sided 95% confidence inteval requires a quartile corresponding to z.975--qnorm(.975)--1.96
 
@@ -239,19 +239,19 @@ We interpret the p-value as the probability of observing a test statistic greate
 If we wanted to estimate the true value of u, we can form a 95% confidence interval
 ```
 z_ci(x_bar,"greater",.95,s,n)
-    ## -Inf 57.61166
+## -Inf 57.61166
 ```
 We interpret this as we are 95% confident that highest value u could be is 57.61166 cms. 
 
 What if we wanted to test if u is less than 54 cm?
 ```
  z <- z_score(x_bar,54,s,n)
-      ## 1.131899
+ ## 1.131899
  z_test(z,"less",.95)
-      ## Do Not Reject Null Hypothesis 1.131899 > -1.644854 
-      ## p value: 0.8711615
+ ## Do Not Reject Null Hypothesis 1.131899 > -1.644854 
+ ## p value: 0.8711615
  z_ci(x_bar,"less",.95,s,n)
-      ## 53.33281      Inf
+ ## 53.33281      Inf
  
  ```
  Looking above, we do not have enough evidence to prove that the true mean value u is below 54 cm. Another way we can think about this is that there is not enoguh evidence to prove that u is not 54. Checking the confidence level, we do see that 54 is within the confidence interval which makes sense. We are 95% confident that the true mean of u is in the interval (53.33281,57.61166).
@@ -264,41 +264,41 @@ What if we wanted to test if u is less than 54 cm?
  
  z <- z_score(x_bar,49,s,n)
  z_test(z,"greater",.95)
-   ## Reject Null Hypothesis 4.976046 > 1.644854 
-   ## p value: 3.244813e-07
+ ## Reject Null Hypothesis 4.976046 > 1.644854 
+ ## p value: 3.244813e-07
  
  
  # Ho: u = 58 Ha: u < 58
 
  z <- z_score(x_bar,58,s,n)
  z_test(z,"less",.95)
-    ## Reject Null Hypothesis -1.943419 < -1.644854 
-    ## p value: 0.0259828
+ ## Reject Null Hypothesis -1.943419 < -1.644854 
+ ## p value: 0.0259828
  
  
  # Ho: u = 56 Ha: u != 56
  
  z <- z_score(x_bar,56,s,n)
-      ## -0.4057598
+ ## -0.4057598
  z_test(z,"two.sided",.95)
-      ## Do Not Reject Null Hypothesis 0.4057598 < 1.959964 
-      ## p value: 0.6849191
+ ## Do Not Reject Null Hypothesis 0.4057598 < 1.959964 
+ ## p value: 0.6849191
  
  
  z_ci(x_bar,"two.sided",.95,s,n)
-      ## 52.92295 58.02152
+ ## 52.92295 58.02152
  
  
  
  z_ci(x_bar,"two.sided",.99,s,n)
-      ## 52.12191 58.82256
+ ## 52.12191 58.82256
    
  z <- z_score(x_bar,52.2,s,n)
  z_test(z,"two.sided",.99)
-      ## Do Not Reject Null Hypothesis 2.515792 < 2.575829 
-      ## p value: 0.01187653
+ ## Do Not Reject Null Hypothesis 2.515792 < 2.575829 
+ ## p value: 0.01187653
  z_test(z,"two.sided",.95)
-      ## Reject Null Hypothesis 2.515792 > 1.959964 
-      ## p value: 0.01187653
+ ## Reject Null Hypothesis 2.515792 > 1.959964 
+ ## p value: 0.01187653
  ```
 
