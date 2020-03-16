@@ -240,8 +240,13 @@ If we wanted to estimate the true value of u, we can form a 95% confidence inter
 ```
 z_ci(x_bar,"greater",.95,s,n)
 ## -Inf 57.61166
+
+# two tailed ci
+
+z_ci(x_bar,"two.sided",.95,s,n)
+## 52.92295 58.02152
 ```
-We interpret this as we are 95% confident that highest value u could be is 57.61166 cms. 
+We interpret this as we are 95% confident that highest value u could be is 57.61166 cms. Using a two tailed confidence interval, we are 95% confident that the true value of u is in the interval (52.92295,58.02152). 
 
 What if we wanted to test if u is less than 54 cm?
 ```
@@ -254,10 +259,10 @@ What if we wanted to test if u is less than 54 cm?
  ## 53.33281      Inf
  
  ```
- Looking above, we do not have enough evidence to prove that the true mean value u is below 54 cm. Another way we can think about this is that there is not enoguh evidence to prove that u is not 54. Checking the confidence level, we do see that 54 is within the confidence interval which makes sense. We are 95% confident that the true mean of u is in the interval (53.33281,57.61166).
+ Looking above, we do not have enough evidence to prove that the true mean value u is below 54 cm. Another way we can think about this is that there is not enoguh evidence to prove that u is not 54. Checking the one/two tailed confidence level, we do see that 54 is within the confidence interval which makes sense. 
  
  
- That's it! I've included some more test below if you're a curious one
+ That's it! I've included some more tests below if you're a curious one
  
  ```
  # Ho: u = 49 Ha: u > 49
@@ -280,19 +285,22 @@ What if we wanted to test if u is less than 54 cm?
  
  z <- z_score(x_bar,56,s,n)
  ## -0.4057598
+ 
  z_test(z,"two.sided",.95)
  ## Do Not Reject Null Hypothesis 0.4057598 < 1.959964 
  ## p value: 0.6849191
  
  
+ # CI
  z_ci(x_bar,"two.sided",.95,s,n)
  ## 52.92295 58.02152
- 
- 
  
  z_ci(x_bar,"two.sided",.99,s,n)
  ## 52.12191 58.82256
    
+   
+ # Ho: u = 52.2 Ha: u != 52.2
+ 
  z <- z_score(x_bar,52.2,s,n)
  z_test(z,"two.sided",.99)
  ## Do Not Reject Null Hypothesis 2.515792 < 2.575829 
