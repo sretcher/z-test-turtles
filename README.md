@@ -2,7 +2,9 @@ Spencer Retcher
 [sretcher.github.io](https://github.com/sretcher/sretcher.github.io)
 # One Sample Means Z-Test
 
-In Aquatic Biology (Vol. 9. 2010), a study was conducted on the green sea turtles inhabiting the Sound Lagoon of Grand Cayman. The carapace length (cm) was recorded from a sample of 76 green sea turtles. We will use a z-test to make an inference about our population mean (true mean carapace length of all green sea turtles in Sound Lagoon) using sample data. The following code loads the data, removes irrelevant columns, and gives us a brief summary of the data
+In Aquatic Biology (Vol. 9. 2010), a study was conducted on the green sea turtles inhabiting the Sound Lagoon of Grand Cayman. The carapace length (cm) was recorded from a sample of 76 green sea turtles. We will use a z-test to make an inference about our population mean (true mean carapace length of all green sea turtles in Sound Lagoon) using sample data. 
+
+The following code loads the data, removes irrelevant columns, and gives us a brief summary of the data.
 
 
 ```
@@ -40,10 +42,12 @@ str(turtle)
 ## - attr(*, "spec")=
 ##  .. cols(
 ##  ..   Range = col_character(),
-## ..   Captures = col_double(),
+##  ..   Captures = col_double(),
 ##  ..   Length = col_double()
 ##  .. )
 ```
+
+As with most parametric tests, its important to check that we've fulfilled the assumptions so that our inference about our population mean is valid.
 
 ## Conditions Required For Z-Test
 1. A random sample is selected from the target population.
@@ -51,16 +55,15 @@ str(turtle)
 3. The population's standard deviation is known. 
 
 
-
-
-
-
-
+Looking back at the study conducted, a random sample of 76 was taken from the population. To test if the population is normally distributed, we will use a histogram and a normal probability plot. 
+```
 ggplot(mapping=aes(x=Length),data=turtle) +
   geom_histogram()
 
 qqnorm(turtle$Length)
 qqline(turtle$Length,col="blue",lwd=1)
+```
+
 
 
 x_bar = mean(turtle$Length, na.rm = TRUE)
