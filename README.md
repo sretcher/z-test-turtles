@@ -2,21 +2,30 @@ Spencer Retcher
 [sretcher.github.io](https://github.com/sretcher/sretcher.github.io)
 # One Sample Means Z-Test
 
-In Aquatic Biology (Vol. 9. 2010), a study was conducted on the green sea turtles inhabiting the Sound Lagoon of Grand Cayman. The carapace length (cm) was recorded from a sample of 76 green sea turtles. We will use a z-test to make an inference about our population mean $$\mu\$$ (true mean carapace length of all green sea turtles in Sound Lagoon) using sample data.
+In Aquatic Biology (Vol. 9. 2010), a study was conducted on the green sea turtles inhabiting the Sound Lagoon of Grand Cayman. The carapace length (cm) was recorded from a sample of 76 green sea turtles. We will use a z-test to make an inference about our population mean (true mean carapace length of all green sea turtles in Sound Lagoon) using sample data. The following code loads the data, removes irrelevant columns, and gives us a brief summary of the data
+
+
+```
+#Loads Data, Remove irrelevant columns
+library(tidyverse)
+
+turtle <- read_csv("TURTLES.csv") %>%
+          select(Length)
+```
+```
+head(turtle)
+
+summary(turtle)
+```
 
 ## Conditions Required For Z-Test
 1. A random sample is selected from the target population.
 2. The population is normally distributed.
 3. The population's standard deviation is known. 
 
-library(tidyverse)
 
-turtle <- read_csv("TURTLES.csv") %>%
-          select(Length)
 
-head(turtle)
 
-summary(turtle)
 
 
 
