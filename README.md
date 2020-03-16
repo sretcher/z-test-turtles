@@ -289,10 +289,16 @@ What if we wanted to test if u is less than 54 cm?
       ## 52.92295 58.02152
  
  
+ 
  z_ci(x_bar,"two.sided",.99,s,n)
       ## 52.12191 58.82256
    
-
-
-
+ z <- z_score(x_bar,52.2,s,n)
+ z_test(z,"two.sided",.99)
+      ## Do Not Reject Null Hypothesis 2.515792 < 2.575829 
+      ## p value: 0.01187653
+ z_test(z,"two.sided",.95)
+      ## Reject Null Hypothesis 2.515792 > 1.959964 
+      ## p value: 0.01187653
+ ```
 
