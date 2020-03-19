@@ -120,8 +120,8 @@ z_ci <- function(x_bar, alternative, conf.level, sigma, n) {
   conf = c(x_bar - qnorm(conf.level) * se, x_bar + qnorm(conf.level) * se)
   
   switch(alternative,
-         "less" = (conf[2]=Inf),
-         "greater" = (conf[1]=-Inf))
+         "greater" = (conf[2]=Inf),
+         "less" = (conf[1]=-Inf))
   
   return(conf)
 }
@@ -239,15 +239,9 @@ We interpret the p-value as the probability of observing a test statistic greate
 If we wanted to estimate the true value of u, we can form a 95% confidence interval
 ```
 z_ci(x_bar,"greater",.95,s,n)
-## -Inf 57.61166
-
-# two tailed ci
-
-z_ci(x_bar,"two.sided",.95,s,n)
-## 52.92295 58.02152
+## 53.33281      Inf
 ```
-We interpret this as we are 95% confident that highest value u could be is 57.61166 cms. Using a two tailed confidence interval, we are 95% confident that the true value of u is in the interval (52.92295,58.02152). 
-
+We interpret this as we are 95% confident that lowest value u could be is 53.33281 cms.
 What if we wanted to test if u is less than 54 cm?
 ```
  z <- z_score(x_bar,54,s,n)
@@ -256,10 +250,10 @@ What if we wanted to test if u is less than 54 cm?
  ## Do Not Reject Null Hypothesis 1.131899 > -1.644854 
  ## p value: 0.8711615
  z_ci(x_bar,"less",.95,s,n)
- ## 53.33281      Inf
+ ## -Inf 57.61166
  
  ```
- Looking above, we do not have enough evidence to prove that the true mean value u is below 54 cm. Another way we can think about this is that there is not enoguh evidence to prove that u is not 54. Checking the one/two tailed confidence level, we do see that 54 is within the confidence interval which makes sense. 
+ Looking above, we do not have enough evidence to prove that the true mean value u is below 54 cm. Another way we can think about this is that there is not enoguh evidence to prove that u is not 54. Checking the one tailed confidence level, we do see that 54 is within the confidence interval which makes sense. 
  
  
  That's it! I've included some more tests below if you're a curious one
